@@ -1,5 +1,7 @@
 package se.lexicon.exceptions.workshop.fileIO;
 
+import se.lexicon.exceptions.workshop.utilities.ConsoleColors;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -102,30 +104,40 @@ public class CSVReader_Writer {
 
     public static void saveLastNames(List<String> lastNames) {
 
-
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get("lastnames.txt"));
-        for (String toWrite : lastNames) {
-            writer.append(toWrite + ",");
+        try {
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get("lastnames.txt"));
+            for (String toWrite : lastNames) {
+                writer.append(toWrite + ",");
+            }
+            writer.flush();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
         }
-        writer.flush();
     }
 
     public static void saveFemaleNames(List<String> femaleNames) {
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_female.txt"));
-        for (String toWrite : femaleNames) {
-            writer.append(toWrite + ",");
+        try {
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_female.txt"));
+            for (String toWrite : femaleNames) {
+                writer.append(toWrite + ",");
+            }
+            writer.flush();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
         }
-        writer.flush();
-
     }
 
 
     public static void saveMaleNames(List<String> maleNames) {
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_males.txt"));
-        for (String toWrite : maleNames) {
-            writer.append(toWrite + ",");
+        try {
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_males.txt"));
+            for (String toWrite : maleNames) {
+                writer.append(toWrite + ",");
+            }
+            writer.flush();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
         }
-        writer.flush();
 
 
     }

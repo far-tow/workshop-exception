@@ -1,4 +1,4 @@
-package se.lexicon.exceptions.workshop.fileIO;
+package se.lexicon.exceptions.workshop.utilities;
 
 public class ConsoleColors {
 
