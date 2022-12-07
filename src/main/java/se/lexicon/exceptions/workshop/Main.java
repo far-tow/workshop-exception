@@ -6,6 +6,7 @@ import java.util.List;
 import se.lexicon.exceptions.workshop.data_access.NameService;
 import se.lexicon.exceptions.workshop.domain.Person;
 import se.lexicon.exceptions.workshop.fileIO.CSVReader_Writer;
+import se.lexicon.exceptions.workshop.utilities.ConsoleColors;
 
 public class Main {
 
@@ -21,7 +22,13 @@ public class Main {
 
 
         Person test = nameService.getNewRandomPerson();
-        System.out.println(test);
+        System.out.println(ConsoleColors.CYAN_BRIGHT + test + ConsoleColors.RESET);
+
+        Person test2 = nameService.getNewRandomPerson();
+        System.out.println(ConsoleColors.CYAN_BRIGHT + test2 + ConsoleColors.RESET);
+
+
+
 
 	}
 
