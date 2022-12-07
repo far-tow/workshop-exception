@@ -2,6 +2,7 @@ package se.lexicon.exceptions.workshop.fileIO;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -21,15 +22,28 @@ public class CSVReader_Writer {
         BufferedReader reader = null;
         List <String> names = null;
 
+        try {
+            reader = Files.newBufferedReader(Paths.get("firstname_males.txt"));
+        names = reader.lines()
+                .flatMap(line -> Stream.of(line.split(",")))
+                .collect(Collectors.toList());
+        } catch (FileNotFoundException e) {
+            System.out.println(ConsoleColors.BLUE_BOLD +"File Not Found: " + e.getMessage() + ConsoleColors.RESET);
 
-        	reader = Files.newBufferedReader(Paths.get("firstname_males.txt"));
-            names = reader.lines()
-                    .flatMap(line -> Stream.of(line.split(",")))
-                    .collect(Collectors.toList());
-
-         	return names;
+        } catch (IOException e){
+            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + e.getMessage() + ConsoleColors.RESET);
+        } finally {
+            try{
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e){
+                e.printStackTrace();
+            }
         }
 
+        return names;
+    }
 
 
     /**
@@ -40,7 +54,7 @@ public class CSVReader_Writer {
 
         List<String> names=null;
 
-            BufferedReader reader = Files.newBufferedReader(Paths.get("firstname_female.txt"))
+            BufferedReader reader = Files.newBufferedReader(Paths.get("firstname_female.txt"));
                 names = reader.lines()
                         .flatMap(line -> Stream.of(line.split(",")))
                         .collect(Collectors.toList());
