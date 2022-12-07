@@ -34,7 +34,7 @@ public class CSVReader_Writer {
             System.out.println(ConsoleColors.BLUE_BOLD + "File Not Found: " + fnfe.getMessage() + ConsoleColors.RESET);
 
         } catch (IOException ioe) {
-            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + ioe.getMessage() + ConsoleColors.RESET);
+            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Error: " + ioe.getMessage() + " does not exist!!" + ConsoleColors.RESET);
         } finally {
             try {
                 if (reader != null) {
@@ -65,7 +65,7 @@ public class CSVReader_Writer {
         } catch (FileNotFoundException fnfe) {
             System.out.println(ConsoleColors.BLUE_BOLD + "Wrong path to the file: " + fnfe.getMessage() + ConsoleColors.RESET);
         } catch (IOException ioe) {
-            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Error: " + ioe.getMessage());
+            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Error: " + ioe.getMessage() + " does not exist!!" + ConsoleColors.RESET);
 
         }
 

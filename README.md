@@ -18,7 +18,7 @@ NameService class and handled with a friendly error message whenever you try to 
 name that already exists.
 - [x] You must successfully be able to create object of type Person using the method
 getNewRandomPerson.
-- [ ] If you add new names you must also be able to save the lists to file.
+- [x] If you add new names you must also be able to save the lists to file.
 
 
 
